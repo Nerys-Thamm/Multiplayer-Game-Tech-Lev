@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
         DEAD,
     }
 
+    public CapturePoint.Team m_Team;
+
 
     public UnityEvent OnDeath;
     public UIbar m_HealthBar;
