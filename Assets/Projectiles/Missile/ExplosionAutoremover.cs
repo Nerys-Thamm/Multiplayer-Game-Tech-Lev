@@ -1,16 +1,21 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionAutoremover : MonoBehaviour
+public class ExplosionAutoremover : NetworkBehaviour
 {
 
     public float m_RemoveTime;
+    public GameObject m_CameraObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!isLocalPlayer)
+        {
+            m_CameraObj.SetActive(false);
+        }
     }
 
     // Update is called once per frame

@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public CharacterController m_Controller;
     public Transform m_Camera;
+    public GameObject m_CameraObj;
     public Missilespawner m_spawner;
     public float m_MoveSpeed;
     public float m_LookSensitivity;
@@ -23,11 +25,16 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+        if(!isLocalPlayer)
+        {
+            m_CameraObj.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer) return;
         m_CurrentJumpDuration -= Time.deltaTime;
 
         //this.gameObject.transform.Rotate(new Vector3(yinput * m_Ysensitivity * Time.deltaTime, xinput * m_Xsensitivity * Time.deltaTime, 0));

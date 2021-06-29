@@ -192,6 +192,8 @@ GameObject:
   - component: {fileID: 996900941920791722}
   - component: {fileID: 7012791050428779530}
   - component: {fileID: 7763092725576022364}
+  - component: {fileID: 5361988052276870451}
+  - component: {fileID: 299508373440137353}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Missile
@@ -228,12 +230,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fdad0f52dd2424a848a79790ed403f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   m_LookDirectionObj: {fileID: 9040858987008303947}
   m_FuelAmount: 5
   m_Thrust: 15
-  m_Pitch: 60
-  m_Roll: 60
-  m_Yaw: 60
+  m_Pitch: 90
+  m_Roll: 90
+  m_Yaw: 90
+  m_CameraObj: {fileID: 1212497196247911759}
 --- !u!114 &1600037846903341607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +323,46 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.77
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5361988052276870451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624504108743277302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!114 &299508373440137353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624504108743277302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  interpolateRotation: 1
+  interpolatePosition: 1
+  syncScale: 1
 --- !u!1 &1753225148112255283
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
